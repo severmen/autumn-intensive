@@ -1,0 +1,90 @@
+
+html,body{
+    height: 100%;
+    background-image:radial-gradient(#644367, #320f35);
+}
+.main_form{
+    background-color: white;
+    width: 406px;
+    height: 226px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+}
+.form_header {
+    width: 405px;
+    height: 62px;
+    background-image: linear-gradient(0deg, #5e4668, #6d5179);
+    border-style:solid;
+    border-width: 1px;
+    border-color:#82658e;
+    border-radius: 2px;
+}
+.form_header p{
+    padding: 0px;
+    margin: 0px;
+    font-family:HelveticaNeue;
+    font-size:14px;
+    color: white;
+    margin-top: 22px;
+    margin-left: 20px;
+
+}
+.text_form{
+    width: 357px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+    margin-top:12px;
+    font-family:HelveticaNeue;
+    padding-left: 18px;
+    font-size:12px;
+    background-color: #efeeef;
+    border-style:solid;
+    border-width: 1px;
+    border-color:#dedede;
+    border-radius: 2px;
+}
+.text_form:focus-visible{
+    outline: none;
+    box-shadow: 0 0 3pt 2pt cornflowerblue;
+    transition: .2s;
+}
+
+.input_form form img{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 357px;
+}
+.text_submit{
+    width: 100px;
+    height: 40px;
+    font-family:HelveticaNeue;
+    font-size:12px;
+    color:white;
+    background-image: linear-gradient(#6e5279,#5f4769);
+    border-style:solid;
+    border-width: 1px;
+    border-color:#82658e;
+    border-radius: 2px;
+    display: block;
+    margin: 15px auto;
+}
+.error_message{
+    display:block;
+    font-family:HelveticaNeue;
+    font-size:13px;
+    color:red;
+    margin-left: 15px;
+}
+@font-face {
+    font-family: "HelveticaNeue";
+    src: url("../fonts/ofont.ru_Helvetica Neue.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
