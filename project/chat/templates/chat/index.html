@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Чат сервис</title>
+    <link href="{% static 'chat/style/index.css' %}" rel="stylesheet" >
+    <link rel="shortcut icon" href="{% static 'chat/img/chat.png' %}" type="image/x-icon">
+</head>
+<body>
+    <div class = "main_form">
+        <div class = "form_header">
+            <p>
+                Авторизация в сервисе
+            </p>
+        </div>
+        <div class = "input_form">
+            <form action="#" method="post">
+                {% csrf_token %}
+                <img src="{% static 'chat/img/user.png' %}" alt="">
+                {{ form.username }}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class = "error_message">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+
+                <input type="submit" value="Войти" class = "text_submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

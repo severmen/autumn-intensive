@@ -1,0 +1,194 @@
+html,body{
+    height: 100%;
+}
+body{
+    background-color:#eeeff2;
+}
+.main_div{
+    width: 440px;
+    height: 365px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+}
+.chat_name{
+    position: absolute;
+    font-family:PoppinsRegular;
+    font-size:14px ;
+    color:#ffffff;
+    margin-top: 18px;
+    margin-left: 46px;
+}
+.background_main_div{
+    position:absolute;
+    background-image:url("../img/chat_background.png") ;
+    background-size:cover ;
+    width: 402px;
+    height: 341px;
+}
+.main_div_in_chat{
+    position:absolute;
+    height: 322px;
+    width: 403px;
+    background-color: #ffffff;
+    margin-top: 44px;
+    margin-left: 43px;
+}
+.header_chat_username{
+    font-family: HelveticaNeue;
+    display: block;
+    margin: 0 auto;
+    width: 155px;
+    margin-top: 5px;
+}
+.header_chat_username label{
+    font-size:14px;
+    color:#7a4d7d;
+}
+.header_chat_username label span{
+    color:#0b0b0b;
+}
+.header_time{
+    margin: 0 auto;
+    width: 77px;
+    margin-top:10px;
+    font-size:12px;
+    font-family:PoppinsMedium ;
+}
+.chat{
+    /*overflow-y: scroll;*/
+    overflow: auto;
+    height: 243px;
+    width: 403px;
+
+    position: relative;
+}
+.chat::-webkit-scrollbar {
+    width: 0px;
+}
+.hee_message{
+    margin-top: 4px;
+    display: flex;
+    margin-bottom: 45px;
+}
+.hee_message .logo{
+    width: 27px;
+    height: 27px;
+    background-color: yellow;
+    border-radius:50%;
+    margin-left: 16px;
+    float: left;
+    position: absolute;
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-family: HelveticaNeue;
+}
+.hee_message .text{
+    background-color: #e7e7eb;
+    font-size: 14px;
+    font-family:PoppinsRegular;
+    float: left;
+    padding: 12px;
+    max-width: 160px;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    border-bottom-left-radius: 1px;
+    margin-left: 50px;
+}
+.hee_message .date_time {
+    font-family:HelveticaNeue;
+    align-self: flex-end;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    margin-bottom: -33px;
+    margin-left: 50px;
+
+}
+.my_message{
+    display: flex;
+    direction: rtl;
+    margin-bottom:30px ;
+}
+.my_message .text{
+    background-image: linear-gradient(#90adfa,#89cffb);
+    max-width: 180px;
+    padding: 12px;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 1px;
+    border-bottom-left-radius: 22px;
+    margin-right: 16px;
+    direction: ltr;
+}
+.my_message .date_time {
+    margin: 0px;
+    position: absolute;
+    font-family:HelveticaNeue;
+    margin-bottom: -20px;
+    right: 17px;
+    align-self: flex-end;
+
+}
+.send_message{
+    background-color: #ededed;
+    margin-top: 4px;
+    margin-left: 10px;
+    width: 357px;
+}
+.send_message .text{
+    background-color: #ededed;
+    border-style:none ;
+    width: 100%;
+    background-color: #ffffff;
+}
+.send_message .text::-webkit-input-placeholder{
+    color: red;
+}
+.send_message .text::-webkit-input-placeholder{
+    text-align: center;
+}
+.send_message .text:focus-visible{
+    outline: none;
+    box-shadow: 0 0 3pt 2pt cornflowerblue;
+    transition: .2s;
+}
+.send_message .button{
+    position: absolute;
+    margin-left: 364px;
+    margin-top: -1px;
+    background-image: url("../img/send_buttom.png");
+    background-size:cover;
+    border-style: none;
+    width: 25px;
+    height: 25px;
+}
+
+@font-face {
+    font-family: "PoppinsRegular";
+    src: url("../fonts/poppins-regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+
+}
+
+@font-face {
+    font-family: "HelveticaNeue";
+    src: url("../fonts/ofont.ru_Helvetica Neue.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+
+}
+@font-face {
+    font-family: "PoppinsMedium";
+    src: url("../fonts/poppins-medium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
