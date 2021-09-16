@@ -11,18 +11,29 @@
 
 ## Сборка проекта
 ​		Запуск MongoDB
+
 ​				Переходим в папку mongoDB
+
 ​					-docker-compose build
+
 ​					-docker-compose up
+
 ​		Запуск Redis
+
 ​			Переходим в папку redis
+
 ​				-docker-compose up
+
 ​		Запуск самого проекта
+
 ​			-docker-compose build
+
 ​			-docker-compose up
 
 Доступ к сайту http://127.0.0.1:8000
+
 Для запуска тестов перейдите в CLI приложения и введите
+
 -python manage.py test
 
 
