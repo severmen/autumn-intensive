@@ -1,0 +1,4 @@
+Django==3.2
+channels==3.0.4
+channels-redis==3.3.0
+pymongo==3.12.0

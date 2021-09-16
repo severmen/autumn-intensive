@@ -19,10 +19,8 @@
                 {% csrf_token %}
                 <img src="{% static 'chat/img/user.png' %}" alt="">
                 {{ form.username }}
-                {% if messages %}
-                    {% for message in messages %}
-                        <p class = "error_message">{{ message }}</p>
-                    {% endfor %}
+                {% if form.errors %}
+                        <p class = "error_message">   {{    form.non_field_errors }}</p>
                 {% endif %}
 
                 <input type="submit" value="Войти" class = "text_submit">

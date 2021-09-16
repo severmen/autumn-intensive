@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import pymongo
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
     'chat',
 ]
 
@@ -68,7 +71,30 @@ TEMPLATES = [
     },
 ]
 
+ASGI_APPLICATION = "project.asgi.application"
 WSGI_APPLICATION = 'project.wsgi.application'
+CHANNEL_LAYERS={
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [('localhost', 6379)],
+        },
+    },
+}
+
+
+####################################
+##  MONGO_DB CONFIGURATION ########
+####################################
+db_client = pymongo.MongoClient(host="localhost",
+                                port=27017,
+                                username= "root",
+                                password= "example")
+
+current_DB = db_client["chat_service"]
+
+mongoDB_services = current_DB["nikname"]
+
 
 
 # Database

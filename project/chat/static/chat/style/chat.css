@@ -42,8 +42,8 @@ body{
     font-family: HelveticaNeue;
     display: block;
     margin: 0 auto;
-    width: 155px;
-    margin-top: 5px;
+    display: flex;
+    justify-content: center;
 }
 .header_chat_username label{
     font-size:14px;
@@ -54,14 +54,15 @@ body{
 }
 .header_time{
     margin: 0 auto;
-    width: 77px;
     margin-top:10px;
     font-size:12px;
     font-family:PoppinsMedium ;
+    justify-content: center;
+    display: flex;
 }
 .chat{
     /*overflow-y: scroll;*/
-    overflow: auto;
+    overflow:scroll;
     height: 243px;
     width: 403px;
 

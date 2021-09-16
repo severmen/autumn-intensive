@@ -5,5 +5,5 @@ from .views import (Index,
 
 urlpatterns = [
     path("", Index.as_view()),
-    path("chat/<str:nikname>/",chat, name = "chat" )
+    path("chat/<str:nickname>/",chat, name = "chat" )
 ]

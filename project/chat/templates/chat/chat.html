@@ -5,10 +5,14 @@
     <meta charset="UTF-8">
     <title>Chat</title>
     <link href="{% static 'chat/style/chat.css' %}" rel="stylesheet" >
-    <script src="{% static 'chat/js/chat.js' %}"></script>
+    <link href="{% static 'chat/style/animate.css' %}" rel="stylesheet" >
+    <script>
+        const nickname = "{{ nickname }}";
+    </script>
+    <script src="{% static 'chat/js/chat.js' %}" type="text/javascript" ></script>
     <link rel="shortcut icon" href="{% static 'chat/img/chat.png' %}" type="image/x-icon">
 </head>
-<body>
+<body onload="onload_function()">
     <div class="main_div">
         <div class = "background_main_div">
             <h3 class = "chat_name">Групповой чат</h3>
@@ -18,110 +22,49 @@
             <div class="header_chat_username">
                 <label>USERNAME:
                     <span>
-                        {{ nikname }}
+                        {{ nickname }}
                     </span>
                 </label>
             </div>
-            <div class = "header_time">
-                Sat, 2:22 PM
+            <div class = "header_time" id = "header_time">
+                Соединение не установлено ожидайте!
             </div>
         </div>
-        <div class = "chat">
-            <div class="hee_message">
-                <div class="text">
-                    Привет, кто чем занимаеться?
-                    прикиньте я сегодня 5 пулучил :)
-                </div>
-                <div class="logo">
-                    <!--                    Изображение  лого-->
-                    G
-                </div>
-                <p class = "date_time">
-                    3.09.2021 в 13:22 <br>
-                    username:12345677
-                </p>
-            </div>
-
-            <div class="hee_message">
-                <div class="text">
-                    Ой да ладно я тоже :)
-                </div>
-                <div class="logo">
-                    <!--                    Изображение  лого-->
-                    G
-                </div>
-                <p class = "date_time">
-                    3.09.2021 в 13:22 <br>
-                    username:12345677
-                </p>
-            </div>
-
-            <div class="hee_message">
-                <div class="text">
-                    Блин я мне русскому языку 4 поставили, а химичка вообще 3 хотел апосавить но потом сказала
-                    что вообще ничего ставить не буду :()
-                </div>
-                <div class="logo">
-                    <!--                    Изображение  лого-->
-                    G
-                </div>
-                <p class = "date_time">
-                    3.09.2021 в 13:22 <br>
-                    username:12345677
-                </p>
-            </div>
-
-            <div class = "my_message">
-                <div class = "text">
-                    Я вообще заболел и думаю, ещё неделю не смогу ходит у школу
-                </div>
-                <p class="date_time">
-                    3.09.2021 в 13:22
-                </p>
-            </div>
-
-            <div class = "my_message">
-                <div class = "text">
-                    Блин как жалко
-                </div>
-                <p class="date_time">
-                    3.09.2021 в 13:22
-                </p>
-            </div>
-            <div class="hee_message">
-                <div class="text">
-                    Везёть-же кому то:)
-                </div>
-                <div class="logo">
-                    G
-                </div>
-                <p class = "date_time">
-                    3.09.2021 в 13:22 <br>
-                    username:12345677
-                </p>
-            </div>
-            <div class = "my_message">
-                <div class = "text">
-                    Ой да ну тебя
-                </div>
-                <p class="date_time">
-                    3.09.2021 в 13:22
-                </p>
-            </div>
-            <div class = "my_message">
-                <div class = "text">
-                    Леньтяй !
-                </div>
-                <p class="date_time">
-                    3.09.2021 в 13:22
-                </p>
+        <div class = "chat" id = "chat">
+            <div class="lds-spinner" style="display: block;" id = "no_connect"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            <div id = "have_connect" style ="display: none;">
+            {% for one_message in last_messages %}
+                {% if one_message.nikname == nickname %}
+                    <div class = "my_message">
+                        <div class = "text">
+                            {{ one_message.message|safe }}
+                        </div>
+                        <p class="date_time">
+                            {{ one_message.data_time.day }}.{{ one_message.data_time.month }}.{{ one_message.data_time.year }} в {{ one_message.data_time.hour }}:{{ one_message.data_time.minute }}
+                        </p>
+                    </div>
+                {% else %}
+                    <div class="hee_message">
+                        <div class="text">
+                            {{ one_message.message|safe }}
+                        </div>
+                        <div class="logo">
+                            <!--                    Изображение  лого-->
+                            {{ one_message.nikname|get_first_character }}
+                        </div>
+                        <p class = "date_time">
+                            {{ one_message.data_time.day }}.{{ one_message.data_time.month }}.{{ one_message.data_time.year }} в {{ one_message.data_time.hour }}:{{ one_message.data_time.minute }} <br>
+                            username:{{ one_message.nikname}}
+                        </p>
+                    </div>
+                {% endif %}
+            {% endfor %}
             </div>
         </div>
-            <form class ="send_message" >
-                <input type="button" class = "button">
-                <input type="text" placeholder="Расскажи своё мнение..." class="text" value="">
-
-            </form>
+            <div class ="send_message" >
+                <input type="button" class = "button" id = "send_message_button" onclick="send_message();">
+                <input type="text" placeholder="Расскажи своё мнение..." class="text" value="" id = "send_message_in_input">
+            </div>
         </div>
     </div>
 </body>
